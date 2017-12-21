@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <title>Customer Service Feedback</title>
+        <h1>Customer Feedback - Dashboard</h1>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <!-- Dashboard begin -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12" ng-repeat="val in values.dashboard">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Overall Customer Satisfaction</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" style={{val.negative_p}} aria-valuenow={{val.negative}}
+                                    aria-valuemin="0" aria-valuemax="100">Negative: {{val.negative | number:0 }}%</div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar" style={{val.neutral_p}} aria-valuenow={{val.neutral}} aria-valuemin="0"
+                                    aria-valuemax="100">Neutral: {{val.neutral | number:0}}%</div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" style={{val.positive_p}} aria-valuenow={{val.positive}}
+                                    aria-valuemin="0" aria-valuemax="100">Positive: {{val.positive | number:0}}%</div>
+                            </div>
+                            <div class="progress">
+                                <div ng-if="val.joy<=25" class="progress-bar progress-bar-danger" role="progressbar" style={{val.joy_p}} aria-valuenow={{val.joy}}
+                                    aria-valuemin="0" aria-valuemax="100">Joy: {{val.joy | number:0}}%</div>
+                                <div ng-if="val.joy>25 && val.joy<=50" class="progress-bar progress-bar-warning" role="progressbar" style={{val.joy_p}} aria-valuenow={{val.joy}}
+                                    aria-valuemin="0" aria-valuemax="100">Joy: {{val.joy | number:0}}%</div>
+                                <div ng-if="val.joy>50 && val.joy<=75" class="progress-bar progress-bar-info" role="progressbar" style={{val.joy_p}} aria-valuenow={{val.joy}}
+                                    aria-valuemin="0" aria-valuemax="100">Joy: {{val.joy | number:0}}%</div>
+                                <div ng-if="val.joy>75" class="progress-bar progress-bar-success" role="progressbar" style={{val.joy_p}} aria-valuenow={{val.joy}}
+                                    aria-valuemin="0" aria-valuemax="100">Joy: {{val.joy | number:0}}%</div>
+                            </div>
+                            <div class="progress">
+                                <div ng-if="val.fear<=25" class="progress-bar progress-bar-success" role="progressbar" style={{val.fear_p}} aria-valuenow={{val.fear}}
+                                    aria-valuemin="0" aria-valuemax="100">Fear: {{val.fear | number:0}}%</div>
+                                <div ng-if="val.fear>25 && val.fear<=50" class="progress-bar progress-bar-info" role="progressbar" style={{val.fear_p}} aria-valuenow={{val.fear}}
+                                    aria-valuemin="0" aria-valuemax="100">Fear: {{val.fear | number:0}}%</div>
+                                <div ng-if="val.fear>50 && val.fear<=75" class="progress-bar progress-bar-warning" role="progressbar" style={{val.fear_p}}
+                                    aria-valuenow={{val.fear}} aria-valuemin="0" aria-valuemax="100">Fear: {{val.fear | number:0}}%</div>
+                                <div ng-if="val.fear>75" class="progress-bar progress-bar-danger" role="progressbar" style={{val.fear_p}} aria-valuenow={{val.fear}}
+                                    aria-valuemin="0" aria-valuemax="100">Fear: {{val.fear | number:0}}%</div>
+                            </div>
+                            <div class="progress">
+                                <div ng-if="val.anger<=25" class="progress-bar progress-bar-success" role="progressbar" style={{val.anger_p}} aria-valuenow={{val.anger}}
+                                    aria-valuemin="0" aria-valuemax="100">Anger: {{val.anger | number:0}}%</div>
+                                <div ng-if="val.anger>25 && val.anger<=50" class="progress-bar progress-bar-info" role="progressbar" style={{val.anger_p}}
+                                    aria-valuenow={{val.anger}} aria-valuemin="0" aria-valuemax="100">Anger: {{val.anger | number:0}}%</div>
+                                <div ng-if="val.anger>50 && val.anger<=75" class="progress-bar progress-bar-warning" role="progressbar" style={{val.anger_p}}
+                                    aria-valuenow={{val.anger}} aria-valuemin="0" aria-valuemax="100">Anger: {{val.anger | number:0}}%</div>
+                                <div ng-if="val.anger>75" class="progress-bar progress-bar-danger" role="progressbar" style={{val.anger_p}} aria-valuenow={{val.anger}}
+                                    aria-valuemin="0" aria-valuemax="100">Anger: {{val.anger | number:0}}%</div>
+                            </div>
+                            <div class="progress">
+                                <div ng-if="val.sadness<=25" class="progress-bar progress-bar-success" role="progressbar" style={{val.sadness_p}} aria-valuenow={{val.sadness}}
+                                    aria-valuemin="0" aria-valuemax="100">Sadness: {{val.sadness | number:0}}%</div>
+                                <div ng-if="val.sadness>25 && val.sadness<=50" class="progress-bar progress-bar-info" role="progressbar" style={{val.sadness_p}}
+                                    aria-valuenow={{val.sadness}} aria-valuemin="0" aria-valuemax="100">Sadness: {{val.sadness | number:0}}%</div>
+                                <div ng-if="val.sadness>50 && val.sadness<=75" class="progress-bar progress-bar-warning" role="progressbar" style={{val.sadness_p}}
+                                    aria-valuenow={{val.sadness}} aria-valuemin="0" aria-valuemax="100">Sadness: {{val.sadness | number:0}}%</div>
+                                <div ng-if="val.sadness>75" class="progress-bar progress-bar-danger" role="progressbar" style={{val.sadness_p}} aria-valuenow={{val.sadness}}
+                                    aria-valuemin="0" aria-valuemax="100">Sadness: {{val.sadness | number:0}}%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dashboard ends -->
+
+            <!-- Details begin -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Detailed Customer Satisfaction</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-default" ng-repeat="det in values.detail">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Original Feedback </div>
+                                    <div class="panel-body">
+                                        <span class="badge">{{det.LANGUAGE}}</span> {{det.ORIGINAL_FEEDBACK}}
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Translated Feedback</div>
+                                    <div class="panel-body">
+                                        {{det.ENGLISH_FEEDBACK}}
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Keywords</div>
+                                    <div class="panel-body">
+                                        {{det.KEYWORDS}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Details end -->
+        </div>
+    </div>
+    <!-- Request information to the backend -->
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $http) {
+            $http({
+                method: 'GET',
+                url: '/api/data'
+            }).then(function successCallback(response) {
+                $scope.values = response.data;
+            });
+        });
+    </script>
+</body>
+</html>

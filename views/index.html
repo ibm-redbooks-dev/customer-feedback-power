@@ -1,0 +1,35 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		html {
+			padding: 0 12px;
+		}
+
+		.jumbotron {
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="jumbotron">
+		<h1>Big Hotel Chain</h1>
+		<p>Be My Guest!</p>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<p class="panel-title">To enable us to serve you better, enter your feedback.</p>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" action="watson" method="post">
+				<textarea class="form-control" name="feedback" maxlength="2000" rows="3" placeholder="Enter your feedback here"></textarea>
+				<br/>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
